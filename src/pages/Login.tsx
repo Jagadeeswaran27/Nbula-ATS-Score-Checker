@@ -45,18 +45,20 @@ export function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-dark flex items-center justify-center px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <LogIn className="w-12 h-12 text-blue-600" />
+            <LogIn className="w-12 h-12 text-primary" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
-          <p className="text-gray-600 mt-2">Sign in to your account</p>
+          <h2 className="text-4xl font-bold text-light bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Welcome to RecruitIQ
+          </h2>
+          <p className="text-light-muted mt-2">Sign in to your account</p>
         </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4">
+          <div className="bg-dark-lighter text-secondary p-3 rounded-lg mb-4 border border-secondary/20">
             {error}
           </div>
         )}
@@ -65,22 +67,22 @@ export function Login() {
           onClick={handleGoogleLogin}
           type="button"
           disabled={loading}
-          className="w-full mb-4 py-2 px-4 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 flex items-center justify-center gap-2 transition-colors duration-200"
+          className="w-full mb-4 btn-secondary"
         >
           <img 
             src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" 
             alt="Google" 
-            className="w-5 h-5"
+            className="w-5 h-5 inline mr-2"
           />
           Sign in with Google
         </button>
 
         <div className="relative my-6">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
+            <div className="w-full border-t border-dark-lighter"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-500">
+            <span className="px-2 bg-dark text-light-muted">
               Or continue with
             </span>
           </div>
@@ -88,7 +90,7 @@ export function Login() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-light">
               Email
             </label>
             <input
@@ -97,12 +99,12 @@ export function Login() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="input-field"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-light">
               Password
             </label>
             <input
@@ -111,24 +113,24 @@ export function Login() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="input-field"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-2 px-4 rounded-lg text-white font-medium ${
-              loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
-            } transition-colors duration-200`}
+            className={`w-full btn-primary ${
+              loading && 'opacity-50 cursor-not-allowed'
+            }`}
           >
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <p className="mt-4 text-center text-sm text-light-muted">
           Don't have an account?{' '}
-          <Link to="/signup" className="text-blue-600 hover:text-blue-700 font-medium">
+          <Link to="/signup" className="text-primary hover:text-primary-hover font-medium">
             Sign up
           </Link>
         </p>
