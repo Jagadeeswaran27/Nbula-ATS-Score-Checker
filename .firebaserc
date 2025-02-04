@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "cloud-test-6d446"
-  }
+  },
+  "targets": {
+    "cloud-test-6d446": {
+      "hosting": {
+        "nbula-recruiter-iq": [
+          "nbula-recruiter-iq"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
